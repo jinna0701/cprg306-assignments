@@ -5,7 +5,7 @@ export default function StudentInfo() {
     return (
         <div>
             <h1>Hello, this is Jin 000480092</h1>
-            <Link href="https://github.com/jinna0701?tab=repositories">
+            <Link href="https://github.com/jinna0701/cprg306-assignments">
                 <p> click here to git repository link</p>
                 <p> thanks for the great lecture </p>
             </Link>
