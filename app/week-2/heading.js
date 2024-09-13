@@ -5,7 +5,7 @@
 export default function Heading() {
     return(
         <header>
-            <h1> WEEK 2 Demo. THIS IS Heading</h1>
+            <h1> CPRG 306: Web Development 2- Assignments</h1>
         </header>
     )
 }
