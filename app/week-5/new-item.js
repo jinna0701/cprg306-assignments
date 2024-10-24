@@ -1,34 +1,34 @@
 "use client";
 import { useState } from 'react';
 
-
-
 function Counter() {
+    const [quantity, setQuantity] = useState(1);
 
-    const[ quantity, setQuantity] = useState(1);
-    
-    const increment = () => {   
-      if (quantity < 20)
-        setQuantity(quantity + 1);
-    }
+    const increment = () => {
+        if (quantity < 20) setQuantity(quantity + 1);
+    };
     const decrement = () => {
         setQuantity(quantity - 1);
-    }
-    
-      return (
-        <div style={{ margin: '5px', padding: '5px', width: "200px", height: "100px", display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <p style={{ margin: '5px', padding: '5px', fontSize: 15, backgroundColor: "darkgrey", width: "150px", textAlign: "center" }}>{quantity}
-          
-          <button onClick={increment} style={{ marginLeft: "10px", backgroundColor: "blue", padding: "5px 10px" }}>+</button>
-          <button onClick={decrement} style={{ marginLeft: "20px", backgroundColor: "blue", padding: "5px 10px" }}>-</button>
-           </p>
+    };
+
+    return (
+        <div className="m-1 p-1 w-48 h-24 flex flex-col items-center">
+            <p className="m-1 p-1 text-base bg-darkgrey w-36 text-center">
+                {quantity}
+                <button onClick={increment} className="ml-2 bg-blue-500 p-1">
+                    +
+                </button>
+                <button onClick={decrement} className="ml-5 bg-blue-500 p-1">
+                    -
+                </button>
+            </p>
         </div>
-      )
-    }
+    );
+}
 
 const NewItem = () => {
-    const [name, setName] = useState(""); 
-    const [quantity, setQuantity] = useState(1); 
+    const [name, setName] = useState("");
+    const [quantity, setQuantity] = useState(1);
     const [category, setCategory] = useState("produce");
 
     const handleSubmit = (event) => {
@@ -37,14 +37,13 @@ const NewItem = () => {
         const item = {
             name,
             category,
-            quantity
+            quantity,
         };
- 
     };
 
     return (
-        <form onSubmit={handleSubmit} style={{ margin: '20px', padding: '20px', border: '1px solid #ccc', borderRadius: '5px', width: '300px' }}>
-            <div style={{ marginBottom: '15px' }}>
+        <form onSubmit={handleSubmit} className="m-5 p-5 border border-gray-300 rounded w-72">
+            <div className="mb-4">
                 <label htmlFor="name">Name:</label>
                 <input
                     type="text"
@@ -52,11 +51,11 @@ const NewItem = () => {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
-                    style={{ marginLeft: '10px', padding: '5px', width: '100%',color:`green` }}
+                    className="ml-2 p-1 w-full text-green-500"
                 />
             </div>
 
-            <div style={{ marginBottom: '15px' }}>
+            <div className="mb-4">
                 <label htmlFor="quantity">Quantity:</label>
                 <input
                     type="number"
@@ -64,17 +63,17 @@ const NewItem = () => {
                     value={quantity}
                     onChange={(e) => setQuantity(e.target.value)}
                     required
-                    style={{ marginLeft: '10px', padding: '5px', width: '100%' , color:`green`}}
+                    className="ml-2 p-1 w-full text-green-500"
                 />
             </div>
 
-            <div style={{ marginBottom: '15px' }}>
+            <div className="mb-4">
                 <label htmlFor="category">Category:</label>
                 <select
                     id="category"
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
-                    style={{ marginLeft: '10px', padding: '5px', width: '100%',color:`green` }}
+                    className="ml-2 p-1 w-full text-green-500"
                 >
                     <option value="produce">Produce</option>
                     <option value="dairy">Dairy</option>
@@ -90,18 +89,14 @@ const NewItem = () => {
                 </select>
             </div>
 
-            {/* Submit Button */}
-            <button type="submit" style={{ backgroundColor: 'blue', color: 'white', padding: '10px', width: '100%', border: 'none', borderRadius: '5px' }}>
+            <button type="submit" className="bg-blue-500 text-white p-2 w-full border-none rounded">
                 Submit
             </button>
         </form>
     );
 };
 
-
-
 export default NewItem;
-
 
 
 

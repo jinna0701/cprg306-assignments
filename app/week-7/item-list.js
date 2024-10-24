@@ -1,8 +1,9 @@
 "use client";
+import { useState } from 'react'; 
 import itemsData from './items.json';  
 import Item from './item';
-import { useState } from 'react';
-
+ 
+ 
 export default function ItemList() {
   const [sortBy, setSortBy] = useState("name");
 
@@ -27,20 +28,26 @@ export default function ItemList() {
           Sort by Category
         </button>
       </span>
+
+        {/* <div className="m-5 p-5 border border-gray-300 rounded w-72">
+           
+            <p><strong>Name:</strong> {name}</p>
+            <p><strong>Quantity:</strong> {quantity}</p>
+            <p><strong>Category:</strong> {category}</p>
+        </div> */}
+
+
+
+   
+ 
+
       <ul>
         {sortedItems.map(item => (
           <Item key={item.id} name={item.name} quantity={item.quantity} category={item.category}>
-            <br />
-            Buy in {item.quantity} in {item.category}
+            Buy {item.quantity} {item.name} in {item.category}
           </Item>
         ))}
       </ul>
     </div>
   );
 }
-
-  //map function to go through each item in the array.
-  //Each Item component gets a unique key (using item.id), and it also receives name, quantity, and category as props.
-  //localeCompare:
-
-//This is a method in JavaScript that compares two strings and returns a number indicating their relative order.
