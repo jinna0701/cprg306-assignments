@@ -12,13 +12,14 @@ export default function NewItem({ onAddItem }) {
      
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newItem = {
+        const id = Math.random().toString(36);
+        onAddItem({
+            id,
             name,
             quantity,
             category
-        };
+        });
         
-        setItems([...items, newItem]);
             setName("");
         setQuantity(1);
         setCategory("produce");
@@ -31,7 +32,7 @@ export default function NewItem({ onAddItem }) {
         <div>
             <form onSubmit={handleSubmit} className="m-5 p-5 border border-gray-300 rounded w-72 text-blue-800">
                 <div className="mb-4">
-                    <label className="text-white"htmlFor="name">Name:</label>
+                    <label className="text-white" htmlFor="name">Name:</label>
                     <input
                         type="text"
                         id="name"
@@ -43,7 +44,7 @@ export default function NewItem({ onAddItem }) {
                 </div>
 
                 <div className="mb-4">
-                    <label className="text-white"htmlFor="quantity">Quantity:</label>
+                    <label className="text-white" htmlFor="quantity">Quantity:</label>
                     <input
                         type="number"
                         id="quantity"
@@ -55,7 +56,7 @@ export default function NewItem({ onAddItem }) {
                 </div>
 
                 <div className="mb-4">
-                    <label className="text-white"htmlFor="category">Category:</label>
+                    <label className="text-white" htmlFor="category">Category:</label>
                     <select
                         id="category"
                         value={category}
@@ -80,12 +81,11 @@ export default function NewItem({ onAddItem }) {
                     Submit
                 </button>
             </form>
-            <div>
+            {/* <div>
                 {items.map((item, index) => (
                     <Item key={index} name={item.name} quantity={item.quantity} category={item.category} />
                 ))}
-            </div>
-          
+            </div> */}
         </div>
     );
 }

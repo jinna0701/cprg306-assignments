@@ -1,6 +1,3 @@
-
-
-
 "use client";
 
 import ItemList from "./item-list";
@@ -12,18 +9,16 @@ import { useState, useRef } from "react";
 
 
 export default function Page() {
-    const [items, setItems] = useState([]);
-    const inputRef = useRef();
+    const [items, setItems] = useState(itemsData);
+    // const inputRef = useRef();
+    //This creates a reference object. Initially, inputRef.current is null.
 
-    const add = () => {
-        const inputText = inputRef.current.value;
-        const newItem = {
-            id: items.length + 1,
-            text: inputText,
-        };
-
+    const handleAddItem = (newItem) => {
+        // const inputText = inputRef.current.value;
+        //inputRef.current now points to the input element.
+        
         setItems((prev) => [...prev, newItem]);
-        inputRef.current.value = "";
+        // inputRef.current.value = "";
     };
 //Clear Input Value: inputRef.current.value = ""; clears the input element after adding the new item.
 
@@ -31,13 +26,23 @@ export default function Page() {
 
 
     return (
+
+        // <div>
+        //     <NewItem></NewItem>
+                        
+        //     {items.map((item, index) => {
+        //         return <ItemList key={item.id} text={item.text} index={index} />;
+        //     })}
+        //      <ItemList/>
+        // </div>
+
+
         <div>
-            <NewItem></NewItem>
-            {items.map((item, index) => {
-                return <ItemList key={item.id} text={item.text} index={index} />;
-            })}
- 
-            <ItemList/>
-        </div>
-    );
+            <NewItem onAddItem={handleAddItem} />
+            <ItemList items= {items} />
+    </div>
+);
 }
+
+
+//context API ??

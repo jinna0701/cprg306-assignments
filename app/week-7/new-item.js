@@ -111,15 +111,21 @@ export default function NewItem({ onAddItem }) {
  
 
  
-const handleSubmit =async(event)=>{
+const handleSubmit =(event)=>{
     event.preventDefault();
     const newItem ={ name, quantity, category};
+    // id is random string
+    const id = Math.random().toString(36).substr(2, 9);
+    newItem.id = id;
 
     onAddItem(newItem);
     setName("");    
     setQuantity(0);
-    setCategory("");
+    setCategory("produce");
 }
+
+
+//handleSubmit???? need new id??
 
   //preventDefault is used to prevent the default behavior of the form submission, which is to reload the page.
 
@@ -177,12 +183,8 @@ return (
             </button>
         </form>
 
-        {/* <div className="m-5 p-5 border border-gray-300 rounded w-72">
-           
-            <p><strong>Name:</strong> {name}</p>
-            <p><strong>Quantity:</strong> {quantity}</p>
-            <p><strong>Category:</strong> {category}</p>
-        </div> */}
+     
     </div>
 );
 }
+//onAddIem --// Call the function passed from the parent to update the items list

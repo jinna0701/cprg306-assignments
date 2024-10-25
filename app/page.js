@@ -21,12 +21,12 @@ export default function Page() {
       <Link href="/week-6">Week 6 Assignments</Link>
     </p><br></br>
 
-    <p>
+    {/* <p>
       <Link href="/week-7">Week 7 Assignments</Link>
-    </p><br></br>
+    </p><br></br> */}
 
     <p>
-      <Link href="/week-7again">Week 7 Assignments _again</Link>
+      <Link href="/week-7again">Week 7 Assignments</Link>
     </p><br></br>
  
 
