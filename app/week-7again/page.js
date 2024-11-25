@@ -27,22 +27,16 @@ export default function Page() {
 
     return (
 
-        // <div>
-        //     <NewItem></NewItem>
-                        
-        //     {items.map((item, index) => {
-        //         return <ItemList key={item.id} text={item.text} index={index} />;
-        //     })}
-        //      <ItemList/>
-        // </div>
-
+   
 
         <div>
-            <NewItem onAddItem={handleAddItem} />
+            <NewItem onAddItem={handleAddItem} /> 
             <ItemList items= {items} />
     </div>
 );
 }
 
+// <NewItem onAddItem={handleAddItem} /> 
+//The NewItem component uses this onAddItem prop to call the handleAddItem function when a new item is added, allowing the parent component to update its state with the new item.
 
-//context API ??
+ 

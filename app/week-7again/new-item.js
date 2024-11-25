@@ -6,26 +6,23 @@ export default function NewItem({ onAddItem }) {
     const [name, setName] = useState("");
     const [quantity, setQuantity] = useState(1);
     const [category, setCategory] = useState("produce");
-    const [items, setItems] = useState([]);
-
-    
-     
+    const [items, setItems] = useState([]);        
     const handleSubmit = (e) => {
-        e.preventDefault();
-        const id = Math.random().toString(36);
+        e.preventDefault();   //e.preventDefault(): This prevents the default form submission behavior, which would reload the page
+        const id = Math.random().toString(36);  //The Math.random().toString(36) creates a random number, converts it to base-36 (a mix of letters and numbers), and returns the result as a string. 
         onAddItem({
             id,
             name,
             quantity,
             category
         });
-        
-            setName("");
+        setName("");
         setQuantity(1);
         setCategory("produce");
-
-        
+       
     };
+
+    //onAddItem({ id, name, quantity, category }): This calls the onAddItem function (passed in as a prop) and sends the newly created item object. The object contains:
 //This prevents the default behavior of the form submission, which is to reload the page. By calling e.preventDefault(), the form will not reload the page when submitted.
 //const newItem, is new object 
     return (
@@ -81,11 +78,7 @@ export default function NewItem({ onAddItem }) {
                     Submit
                 </button>
             </form>
-            {/* <div>
-                {items.map((item, index) => (
-                    <Item key={index} name={item.name} quantity={item.quantity} category={item.category} />
-                ))}
-            </div> */}
+         
         </div>
     );
 }
